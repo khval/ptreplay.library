@@ -12,11 +12,14 @@
 #include "ptreplay.library_rev.h"
 CONST UBYTE USED verstag[] = VERSTAG;
 
-struct Library *DOSBase;
-struct Library *PtPlayBase;
-struct ExecIFace *IExec;
-struct DOSIFace *IDOS;
-struct PtPlayIFace *IPtPlay;
+struct Library *DOSBase = NULL;
+struct Library *PtPlayBase = NULL;
+struct Library *NewLibBase = NULL;
+
+struct ExecIFace *IExec= NULL;
+struct DOSIFace *IDOS= NULL;
+struct NewlibIFace * INewlib= NULL ;
+struct PtPlayIFace *IPtPlay= NULL;
 
 /*
  * The system (and compiler) rely on a symbol named _start which marks
@@ -139,10 +142,15 @@ STATIC BPTR libExpunge(struct LibraryManagerInterface *Self) {
 	if (libBase->libNode.lib_OpenCnt == 0) {
 		result = libBase->segList;
 		/* Undo what the init code did */
-		IExec->DropInterface((struct Interface *)IDOS);
-		IExec->CloseLibrary(DOSBase);
-		IExec->FreeSysObject(ASOT_MUTEX, libBase->mutex);
 
+		if (IDOS) IExec->DropInterface((struct Interface *)IDOS);
+		if (DOSBase) IExec->CloseLibrary(DOSBase);
+
+		if (INewlib) IExec->DropInterface((struct Interface *)INewlib);
+		if (NewLibBase) IExec->CloseLibrary(NewLibBase);
+
+		if (libBase->mutex) IExec->FreeSysObject(ASOT_MUTEX, libBase->mutex);
+		
 		IExec->Remove((struct Node *)libBase);
 		IExec->DeleteLibrary((struct Library *)libBase);
 	} else {
@@ -170,12 +178,18 @@ STATIC struct PTReplayBase *libInit(struct PTReplayBase *libBase, BPTR seglist, 
 	}
 
 	DOSBase = IExec->OpenLibrary("dos.library", 52);
-	IDOS = (struct DOSIFace *)IExec->GetInterface(DOSBase, "main", 1, NULL);
+	if (DOSBase) IDOS = (struct DOSIFace *)IExec->GetInterface(DOSBase, "main", 1, NULL);
+
+	NewLibBase = IExec->OpenLibrary("newlib.library", 52);
+	if (NewLibBase) INewlib = (struct DOSIFace *)IExec->GetInterface(DOSBase, "main", 1, NULL);
+
 	if (!IDOS) {
 		IExec->CloseLibrary(DOSBase);
 		IExec->FreeSysObject(ASOT_MUTEX, libBase->mutex);
 		return NULL;
 	}
+
+	// newlib is not needed but its useful for debuging.
 
 	return libBase;
 }
