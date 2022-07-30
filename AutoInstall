@@ -1,0 +1,5 @@
+CopyStore ptreplay.library LIBS:
+
+if not exists LIBS:ptplay.library
+Copy ptplay.library LIBS:
+endif

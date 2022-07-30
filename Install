@@ -1,0 +1,15 @@
+(welcome)
+(set @default-dest "LIBS:")
+(copylib
+	(prompt "Copying ptreplay.library")
+	(help @copylib-help)
+	(source "ptreplay.library")
+	(dest @default-dest)
+)
+(copylib
+	(prompt "Copying ptplay.library")
+	(help @copylib-help)
+	(source "ptplay.library")
+	(dest @default-dest)
+)
+(exit)

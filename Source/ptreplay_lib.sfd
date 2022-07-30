@@ -1,0 +1,34 @@
+==id $Id: ptreplay_lib.sfd,v 1.0 2009/06/22 17:06:22 noname Exp $
+* "ptreplay.library"
+==base _PTReplayBase
+==basetype struct Library *
+==libname ptreplay.library
+==bias 30
+==public
+==include <exec/types.h>
+struct Module * PTLoadModule(STRPTR name) (a0)
+VOID PTUnloadModule(struct Module * module) (a0)
+ULONG PTPlay(struct Module * module) (a0)
+ULONG PTStop(struct Module * module) (a0)
+ULONG PTPause(struct Module * module) (a0)
+ULONG PTResume(struct Module * module) (a0)
+VOID PTFade(struct Module * module, UBYTE speed) (a0,d0)
+VOID PTSetVolume(struct Module * module, UBYTE vol) (a0,d0)
+UBYTE PTSongPos(struct Module * module) (a0)
+UBYTE PTSongLen(struct Module * module) (a0)
+UBYTE PTSongPattern(struct Module * module, UWORD Pos) (a0,d0)
+UBYTE PTPatternPos(struct Module * Module) (a0)
+APTR PTPatternData(struct Module * Module, UBYTE Pattern, UBYTE Row) (a0,d0,d1)
+void PTInstallBits(struct Module * Module, BYTE Restart, BYTE NextPattern, BYTE NextRow,
+	BYTE Fade) (a0,d0,d1,d2,d3)
+struct Module * PTSetupMod(APTR ModuleFile) (a0)
+void PTFreeMod(struct Module * Module) (a0)
+void PTStartFade(struct Module * Module, UBYTE speed) (a0,d0)
+void PTOnChannel(struct Module * Module, BYTE Channels) (a0,d0)
+void PTOffChannel(struct Module * Module, BYTE Channels) (a0,d0)
+void PTSetPos(struct Module * Module, UBYTE Pos) (a0,d0)
+void PTSetPri(BYTE Pri) (d0)
+BYTE PTGetPri() ()
+BYTE PTGetChan() ()
+struct PTSample * PTGetSample(struct Module * Module, WORD Nr) (a0,d0)
+==end
