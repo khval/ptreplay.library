@@ -1,17 +1,12 @@
 # ptreplay.library
 API reimplementation of ptreplay.library for AmigaOS4.1
 
-Short:        Library for playing ProTracker modules
-
-Author:       Fredrik Wikstrom
-
-Uploader:     Fredrik Wikstrom <fredrik@a500.org>
-
-Type:         util/libs
-
-Version:      7.2
-
-Architecture: ppc-amigaos
+    Short:        Library for playing ProTracker modules
+    Author:       Fredrik Wikstrom
+    Uploader:     Fredrik Wikstrom <fredrik@a500.org>
+    Type:         util/libs
+    Version:      7.2
+    Architecture: ppc-amigaos
 
 This is an API compatible reimplementation of Mattias Karlsson's and Andreas
 Palsson's "ptreplay.library". Audio output is done as 16-bit, 44100 Hz, stereo
@@ -28,17 +23,19 @@ a constant value (usually null/zero) depending on the function definition.
 
 Requirements:
 
- - AmigaOS 4.0 or newer
- - ptplay.library 2.6 (29.4.08)
+    * AmigaOS 4.0 or newer
+    * ptplay.library 2.6 (29.4.08)
 
 Installation:
 
-Copy ptreplay.library LIBS:
+    Copy ptreplay.library LIBS:
 
 Changes:
 
 7.2 (19-Jul-2009)
- - Opens a requester if ptplay.library fails to open
+
+    Opens a requester if ptplay.library fails to open
 
 7.1 (23-Jun-2009)
- - First released version
+
+    First released version
