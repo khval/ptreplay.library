@@ -2,10 +2,15 @@
 API reimplementation of ptreplay.library for AmigaOS4.1
 
 Short:        Library for playing ProTracker modules
+
 Author:       Fredrik Wikstrom
+
 Uploader:     Fredrik Wikstrom <fredrik@a500.org>
+
 Type:         util/libs
+
 Version:      7.2
+
 Architecture: ppc-amigaos
 
 This is an API compatible reimplementation of Mattias Karlsson's and Andreas
