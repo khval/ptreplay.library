@@ -35,7 +35,8 @@ Changes:
 7.x (xx-xx-2022) changes by LiveForIt (Kjetil Hvalstrand)
 
     Implanted PTGetSample and PTPatternData
-    (Experimental, naive implementation.)
+    (Experimental, naive implementation.
+    Not uploaded yet to OS4Depot.net)
 
 7.2 (19-Jul-2009)
 
