@@ -5,7 +5,7 @@ API reimplementation of ptreplay.library for AmigaOS4.1
     Author:       Fredrik Wikstrom
     Uploader:     Fredrik Wikstrom <fredrik@a500.org>
     Type:         util/libs
-    Version:      7.2
+    Version:      7.x
     Architecture: ppc-amigaos
 
 This is an API compatible reimplementation of Mattias Karlsson's and Andreas
