@@ -18,6 +18,9 @@ PTLoadModule, PTUnloadModule, PTPlay, PTStop, PTPause, PTResume, PTFade,
 PTSetVolume, PTSongPos, PTSongLen, PTPatternPos, PTInstallBits, PTSetupMod,
 PTFreeMod, PTStartFade, PTSetPos
 
+Experminetal:
+PTGetSample and PTPatternData
+
 Other functions are implemented simply as no-ops which do nothing except return
 a constant value (usually null/zero) depending on the function definition.
 
