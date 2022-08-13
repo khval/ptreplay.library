@@ -32,6 +32,11 @@ Installation:
 
 Changes:
 
+7.x (xx-xx-2022) changes by LiveForIt (Kjetil Hvalstrand)
+
+    Implanted PTGetSample and PTPatternData
+    (Experimental, naive implementation.)
+
 7.2 (19-Jul-2009)
 
     Opens a requester if ptplay.library fails to open
